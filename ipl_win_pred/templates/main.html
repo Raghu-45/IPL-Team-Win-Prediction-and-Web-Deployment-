@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IPL Win Predictor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id = 'box1'> <h1>IPL Win Predictor</h1> </div>     
+    
+    <form action = "" method = "POST">   
+        {% csrf_token %}
+        <!--<h3>Enter the name of the team which won the toss
+        <h5>1. Pune Warriors         : 8. Deccan Chargers</h5>
+        <h5>2. Kolkata Knight Riders : 9. Delhi Capitals</h5>
+        <h5>3. Rajasthan Royals      : 10. Mumbai Indians</h5>
+        <h5>4. Kochi Tuskers Kerala  : 11. Sunrisers Hyderabad</h5>
+        <h5>5. Gujarat Lions         : 12. Rising Pune Supergiants</h5>
+        <h5>6. Chennai Super Kings   : 13. Royal Challengers Bangalore</h5>
+        <h5>7. Delhi Daredevils      : 14. Kings XI Punjab</h5>-->
+        <h3>Select the Toss Winner</h3>
+        <select id="items" name="toss_winner">
+            <option value="" disabled selected>Select an item</option>
+            <option >Pune Warriors</option>
+            <option>Kolkata Knight Riders</option>
+            <option>Rajasthan Royals</option>
+            <option>Kochi Tuskers Kerala</option>
+            <option>Gujarat Lions</option>
+            <option>Chennai Super Kings</option>
+            <option>Delhi Daredevils</option>
+            <option>Deccan Chargers</option>
+            <option>Delhi Capitals</option>
+            <option>Mumbai Indians</option>
+            <option>Sunrisers Hyderabad</option>
+            <option>Rising Pune Supergiants</option>
+            <option>Royal Challengers Bangalore</option>
+            <option>Kings XI Punjab</option>
+        </select>
+        <h3>What was the Toss Decision?</h3> 
+        <select id="items" name="toss_decision">
+            <option value="" disabled selected>Select an item</option>
+            <option>bat</option>
+            <option>field</option>
+        </select>  
+        <h3>Where was the match held?</h3> 
+        <select id="items" name="venue">
+            <option value="" disabled selected>Select an item</option>
+            <option>Home</option>
+            <option>Away</option>
+        </select><br>
+        <button type="submit">Predict</button>
+
+        {% if result %}
+        <h2>The team is predicted to {{result}}</h2>
+        {% endif %}
+    </form>
+</body>
+</html>
